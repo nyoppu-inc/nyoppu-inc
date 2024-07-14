@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>にょっぷ。inc.</title>
+	<script src="js/home.js"></script>
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+	<div id="main"></div>
+	<script>
+		fetch('./content.md')
+	.then(response => response.text())
+	.then(text => {
+		const html = convertTextToHTML(text);
+		document.getElementById("main").innerHTML = html;
+	})
+	.catch(error => {
+		console.error('ファイルの読み込みエラー:', error);
+	});
+	</script>
+</body>
+</html>
